@@ -1,0 +1,14 @@
+version: '3'
+services:
+ web:
+  image: rabbitmq:3-management
+  container_name: rabbit_web
+  ports:
+   - "15672:15672"
+  links:
+   - rabbit-client
+
+ rabbit-client:
+  image: rabbit_client
+  container_name: rabbit_client
+  build: .
