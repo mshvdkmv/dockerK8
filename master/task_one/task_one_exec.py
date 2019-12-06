@@ -1,4 +1,5 @@
 import logging
+import os 
 
 log = logging.getLogger(__name__)
 
@@ -13,6 +14,7 @@ class TaskOne(object):
 
         try:
             ## YOUR ALGORITHM HERE
+            os.system("kubectl apply -f hello.yaml")
 
             task_result["status"] = "Success"
 

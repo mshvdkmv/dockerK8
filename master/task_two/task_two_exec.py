@@ -1,5 +1,5 @@
 import logging
-
+import os
 log = logging.getLogger(__name__)
 
 
@@ -13,7 +13,7 @@ class TaskTwo(object):
 
         try:
             ## YOUR ALGORITHM HERE
-
+            os.system("kubectl apply -f sysbench.yaml")
             task_result["status"] = "Success"
 
         except Exception as e:

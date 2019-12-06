@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+ name: hello-redis
+ labels:
+  app: helder
+spec:
+ containers:
+   - name: hello-server
+     image: quarriedstone/helloworld_server:latest
+   - name: redis-own
+     image: redis:latest
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: server-entrypoint
+ namespace: default
+spec:
+ type: NodePort
+ ports:
+  - port: 8080
+    targetPort: 8000
+    nodePort: 30001
+ selector:
+   app: helred
